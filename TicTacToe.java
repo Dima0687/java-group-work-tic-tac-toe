@@ -9,10 +9,11 @@ public class TicTacToe {
     displayBoard();
     
     while (true) {
+      getPlayerMove(); // changing a "field" to a players sign within the 2d array "board"
       displayBoard(); // refresh the board with new data from the board
       
       
-      if(checkWinner() /*|| isNoMoreMovesPossible() */) { // check if we have a winner or if we have the board full
+      if(checkWinner() || isNoMoreMovesPossible()) { // check if we have a winner or if we have the board full
         break;
       }
       
@@ -65,15 +66,29 @@ private static boolean checkWinner() {
 	    return false;
 	    
 	}
-//no more moves left on the board
-public static boolean isNoMoreMovesPossible() {
- for (int row = 0; row < 3; row++) {
-     for (int col = 0; col < 3; col++) {
-         if (board[row][col] == '-') {
-             return false;
-         }
-     }
- }
- return true;
+  //no more moves left on the board
+  public static boolean isNoMoreMovesPossible() {
+   for (int row = 0; row < 3; row++) {
+       for (int col = 0; col < 3; col++) {
+           if (board[row][col] == '-') {
+               return false;
+           }
+       }
+   }
+   return true;
+  }
+  
+  private static void getPlayerMove() {
+    Scanner scanner = new Scanner(System.in);
+
+    int row, col;
+    do {
+        System.out.println("Player " + currentPlayer + ", enter row (0-2) and column (0-2): ");
+        row = scanner.nextInt();
+        col = scanner.nextInt();
+    } while (row < 0 || row > 2 || col < 0 || col > 2 || board[row][col] != '-');
+
+    board[row][col] = currentPlayer;
+    scanner.close();
 }
 }
