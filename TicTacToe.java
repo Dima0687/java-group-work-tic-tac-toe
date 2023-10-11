@@ -11,24 +11,20 @@ public class TicTacToe {
     while (true) {
       displayBoard(); // refresh the board with new data from the board
       
-      /*
-      if(checkWinner() || isNoMoreMovesPossible()) { // check if we have a winner or if we have the board full
+      
+      if(checkWinner() /*|| isNoMoreMovesPossible() */) { // check if we have a winner or if we have the board full
         break;
       }
-      
-      */
       
       switchPlayer(); // round is over, switch to the next player
       
     }
     
-    /*
      if(checkWinner()) {
         System.out.println("Player " + currentPlayer + " wins!");
      } else {
         System.out.println("It's a draw!");
      }
-     */
   }
 
   private static void displayBoard() {
