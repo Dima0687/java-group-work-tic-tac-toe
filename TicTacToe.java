@@ -88,7 +88,6 @@ private static boolean checkWinner() {
         col = scanner.nextInt();
     } while (row < 0 || row > 2 || col < 0 || col > 2 || board[row][col] != '-');
 
-    board[row][col] = currentPlayer;
-    scanner.close();
+    board[row][col] = currentPlayer;;
 }
 }
